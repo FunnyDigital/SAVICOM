@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "357153090286",
+    "project_id": "savicom-888e1",
+    "storage_bucket": "savicom-888e1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:357153090286:android:9b8c95f445cb9fd8b7a1ff",
+        "android_client_info": {
+          "package_name": "com.bitvilltecnologies.savicom"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "357153090286-18gn5v50q2dnplniplasgsl7it211a43.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCScPHYB8wi_TCYMCvvy1_9xjz4j7mWxtg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "357153090286-18gn5v50q2dnplniplasgsl7it211a43.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

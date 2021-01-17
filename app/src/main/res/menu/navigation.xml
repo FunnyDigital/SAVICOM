@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home"
+        android:title="Home"
+        android:visible="true"
+        android:layout_marginLeft="20dp"
+        android:icon="@drawable/home"/>
+
+    <item
+        android:id="@+id/newsfeed"
+        android:title="News Feed"
+        android:visible="true"
+        android:layout_marginLeft="20dp"
+        android:icon="@drawable/rss"/>
+
+    <item
+        android:id="@+id/profile"
+        android:title="My Account"
+        android:visible="true"
+        android:layout_marginLeft="20dp"
+        android:icon="@drawable/user"/>
+</menu>

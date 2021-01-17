@@ -6,16 +6,15 @@
     android:layout_height="match_parent"
     android:background="#2EB19F"
     tools:context=".SignupActivity">
-    <TextView
+    <ImageView
         android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/keepcalmmedium"
-        android:text="HELLO !"
-        android:layout_marginTop="100dp"
-        android:layout_marginLeft="10dp"
-        android:textColor="#ffff"
-        android:textSize="50dp" />
+        android:layout_width="190dp"
+        android:layout_height="190dp"
+        android:src="@drawable/npflogo"
+        android:layout_above="@+id/relativeLayout1"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp"/>
 
     <RelativeLayout
         android:id="@+id/relativeLayout1"
@@ -23,16 +22,54 @@
         android:layout_centerHorizontal="true"
         android:layout_centerInParent="true"
         android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/signupname"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:textAlignment="center"
+            android:background="@drawable/edittext_background"
+            android:hint="Full Name"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:inputType="textEmailAddress"/>
+
         <EditText
             android:id="@+id/signupemaileditext"
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/signupname"
             android:textAlignment="center"
             android:background="@drawable/edittext_background"
             android:hint="Email"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
             android:inputType="textEmailAddress"/>
+        <EditText
+            android:id="@+id/signupphone"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:textAlignment="center"
+            android:background="@drawable/edittext_background"
+            android:hint="Phone number"
+            android:layout_below="@id/signupemaileditext"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="50dp"
+            android:inputType="phone"/>
+        <EditText
+            android:id="@+id/signupaddress"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@id/signupphone"
+            android:textAlignment="center"
+            android:background="@drawable/edittext_background"
+            android:hint="Contact address"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:inputType="textMultiLine"/>
 
         <EditText
             android:id="@+id/signupeditextpassword"
@@ -45,7 +82,7 @@
             android:background="@drawable/edittext_background"
             android:hint="Password"
             android:inputType="textPassword"
-            android:layout_below="@+id/signupemaileditext" />
+            android:layout_below="@+id/signupaddress" />
 
         <EditText
             android:id="@+id/confirmpasswordeditext"
