@@ -3,8 +3,14 @@ package com.bitvilltecnologies.savicom;
 public class User {
     public  String  name,phone,address,email;
 
-    public User(String name, String phone, String address, String email){
+    public User(){
 
+    }
+    public User(String name, String phone, String address, String email) {
+        this.name = name;
+        this.phone = phone;
+        this.address = address;
+        this.email = email;
     }
 
     public String getName() {

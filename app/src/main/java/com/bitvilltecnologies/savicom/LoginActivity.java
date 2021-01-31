@@ -35,6 +35,9 @@ EditText emailtxt,passwordtxt;
         emailtxt=(EditText)findViewById(R.id.emaileditext);
         passwordtxt=(EditText)findViewById(R.id.passwordeditext);
 
+
+        mAuth = FirebaseAuth.getInstance();
+
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
