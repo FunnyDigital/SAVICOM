@@ -7,12 +7,20 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.squareup.picasso.Picasso;
 
 public class Feed extends AppCompatActivity {
     ImageView imageViewno;
@@ -72,8 +80,37 @@ public class Feed extends AppCompatActivity {
         reference= firebaseDatabase.getReference("Users/POSTS");
 
         //imageViewno=findViewById(R.id.imageViewno);
-        if (!TextUtils.isEmpty(Config.imageLink))
-            Picasso.get().load(Config.imageLink).into(imageViewno);
+       // if (!TextUtils.isEmpty(Config.imageLink))
+         //   Picasso.get().load(Config.imageLink).into(imageViewno);
+
+        FeedaAdapter();
+    }
+
+    private void FeedaAdapter() {
+        Query query = FirebaseDatabase.getInstance().getReference().child("feed").limitToLast(50);
+        FirebaseRecyclerOptions<Model>options=new FirebaseRecyclerOptions.Builder<Model>().setQuery(query,Model.class).build();
+        FirebaseRecyclerAdapter adapter = new FirebaseRecyclerAdapter<Model,ViewHolder>(options) {
+
+
+            @NonNull
+            @Override
+            public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.feed_custom_rom,parent,false);
+                return  new ViewHolder(view);
+            }
+
+            @Override
+            protected void onBindViewHolder(@NonNull ViewHolder viewHolder, int position, @NonNull Model model) {
+                viewHolder.setDetails(model.getTitle(),model.getImage(),model.getDescription());
+
+
+            }
+        };
+        adapter.startListening();
+        recyclerView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+
+
     }
 
 
