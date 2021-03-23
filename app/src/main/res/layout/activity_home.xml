@@ -32,6 +32,7 @@
             android:layout_row="0"
             android:layout_column="0"
             android:layout_margin="20dp"
+            android:rotationX="20"
             android:scaleType="centerInside"
             android:src="@drawable/wanted" />
         <TextView
@@ -44,12 +45,13 @@
         <ImageButton
             android:id="@+id/lostbtn"
             android:layout_width="160dp"
-            android:layout_column="1"
-            android:src="@drawable/lostitems"
+            android:layout_height="160dp"
             android:layout_row="0"
+            android:layout_column="1"
             android:layout_margin="20dp"
+            android:rotationX="20"
             android:scaleType="centerInside"
-            android:layout_height="160dp"/>
+            android:src="@drawable/lostitems" />
         <TextView
             android:text="Find lost items"
             android:layout_column="1"
@@ -60,22 +62,24 @@
         <ImageButton
             android:id="@+id/emergencybtn"
             android:layout_width="160dp"
-            android:layout_column="0"
+            android:layout_height="160dp"
             android:layout_row="1"
-            android:src="@drawable/emergencycall"
-            android:scaleType="centerInside"
+            android:layout_column="0"
             android:layout_margin="20dp"
-            android:layout_height="160dp"/>
+            android:rotationX="20"
+            android:scaleType="centerInside"
+            android:src="@drawable/emergencycall" />
 
         <ImageButton
             android:id="@+id/reportbtn"
             android:layout_width="160dp"
-            android:layout_column="1"
-            android:scaleType="centerInside"
-            android:src="@drawable/document"
-            android:layout_margin="20dp"
+            android:layout_height="160dp"
             android:layout_row="1"
-            android:layout_height="160dp"/>
+            android:layout_column="1"
+            android:layout_margin="20dp"
+            android:rotationX="20"
+            android:scaleType="centerInside"
+            android:src="@drawable/document" />
 
         <TextView
             android:layout_row="1"

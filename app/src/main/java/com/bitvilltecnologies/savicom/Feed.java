@@ -7,20 +7,20 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.bitvilltecnologies.savicom.AUTH.Profile;
+import com.bitvilltecnologies.savicom.MODELS.News_feed_Model;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
-import com.squareup.picasso.Picasso;
 
 public class Feed extends AppCompatActivity {
     ImageView imageViewno;
@@ -47,7 +47,7 @@ public class Feed extends AppCompatActivity {
                     return true;
 
                 case R.id.profile:
-                    Intent intent2 = new Intent(Feed.this,Profile.class);
+                    Intent intent2 = new Intent(Feed.this, Profile.class);
                     finish();
                     startActivity(intent2);
                     return true;
@@ -88,8 +88,8 @@ public class Feed extends AppCompatActivity {
 
     private void FeedaAdapter() {
         Query query = FirebaseDatabase.getInstance().getReference().child("feed").limitToLast(50);
-        FirebaseRecyclerOptions<Model>options=new FirebaseRecyclerOptions.Builder<Model>().setQuery(query,Model.class).build();
-        FirebaseRecyclerAdapter adapter = new FirebaseRecyclerAdapter<Model,ViewHolder>(options) {
+        FirebaseRecyclerOptions<News_feed_Model>options=new FirebaseRecyclerOptions.Builder<News_feed_Model>().setQuery(query, News_feed_Model.class).build();
+        FirebaseRecyclerAdapter adapter = new FirebaseRecyclerAdapter<News_feed_Model,ViewHolder>(options) {
 
 
             @NonNull
@@ -100,7 +100,7 @@ public class Feed extends AppCompatActivity {
             }
 
             @Override
-            protected void onBindViewHolder(@NonNull ViewHolder viewHolder, int position, @NonNull Model model) {
+            protected void onBindViewHolder(@NonNull ViewHolder viewHolder, int position, @NonNull News_feed_Model model) {
                 viewHolder.setDetails(model.getTitle(),model.getImage(),model.getDescription());
 
 

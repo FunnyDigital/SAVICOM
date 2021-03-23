@@ -1,4 +1,4 @@
-package com.bitvilltecnologies.savicom;
+package com.bitvilltecnologies.savicom.AUTH;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,7 +12,6 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -20,6 +19,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bitvilltecnologies.savicom.Feed;
+import com.bitvilltecnologies.savicom.HomeActivity;
+import com.bitvilltecnologies.savicom.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -28,18 +30,14 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class Profile extends AppCompatActivity {
 
@@ -48,6 +46,7 @@ public class Profile extends AppCompatActivity {
 
     String profileImageurl;
     Uri uriProfileImage;
+
 
 
     private FirebaseDatabase mfirebasedatabase;
@@ -71,14 +70,14 @@ public class Profile extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.home:
-                    Intent intent =new Intent(Profile.this,HomeActivity.class);
+                    Intent intent =new Intent(Profile.this, HomeActivity.class);
                     finish();
 
                     startActivity(intent);
                     return true;
 
                 case R.id.newsfeed:
-                    Intent intent2 = new Intent(Profile.this,Feed.class);
+                    Intent intent2 = new Intent(Profile.this, Feed.class);
                     finish();
                     startActivity(intent2);
                     return true;
@@ -113,6 +112,8 @@ public class Profile extends AppCompatActivity {
         storageReference = storage.getReference();
 
 
+
+
         imageViewz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -125,24 +126,13 @@ public class Profile extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                saveUserInformation();
+
 
             }
         });
-        USERVERIFICATION();
+
         LoadUserDP();
-        myRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                showdata(dataSnapshot);
-            }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Toast.makeText(getApplicationContext(),databaseError.getMessage(),Toast.LENGTH_SHORT).show();
-
-            }
-        });
 
     }
 
@@ -230,6 +220,7 @@ public class Profile extends AppCompatActivity {
                 uploadImagetofirebasestorage();
 
 
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -259,7 +250,8 @@ public class Profile extends AppCompatActivity {
                         public void onSuccess(Uri uri) {
                             Log.e("t","url"+uri.toString());
                             profileImageurl=uri.toString();
-                            Toast.makeText(Profile.this,"got url"+uri,Toast.LENGTH_SHORT).show();
+                           // Toast.makeText(Profile.this,"got url"+uri,Toast.LENGTH_SHORT).show();
+                            saveUserInformation();
                         }
                     });
 
@@ -286,62 +278,4 @@ public class Profile extends AppCompatActivity {
         startActivityForResult(Intent.createChooser(intent,"SELECT DP"),CHOOSE_IMAGE);
     }
 
-    private void USERVERIFICATION() {
-        final FirebaseUser firebaseUser = mAuth.getCurrentUser();
-
-        if (firebaseUser.isEmailVerified()){
-            textView.setText("EMAIL AND REGNO NOT LINKED ");
-
-        }else {
-            textView.setText(" YOUR EMAIL AND REGNO HAS BEEN LINKED ");
-            textView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    firebaseUser.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            Toast.makeText(Profile.this,"DATA SENT FOR VERIFICATION", Toast.LENGTH_SHORT).show();
-                        }
-                    });
-                }
-            });
-        }
-    }
-
-
-    private void showdata(DataSnapshot dataSnapshot) {
-
-
-        for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()){
-            User user = new User();
-            user.setName(dataSnapshot1.child(userID).getValue(User.class).getName());
-            user.setPhone(dataSnapshot1.child(userID).getValue(User.class).getPhone());
-            user.setEmail(dataSnapshot1.child(userID).getValue(User.class).getEmail());
-            user.setAddress(dataSnapshot1.child(userID).getValue(User.class).getAddress());
-
-            Log.d(TAG,"VIEWDATABASE:Name: " + user.getName());
-            Log.d(TAG,"VIEWDATABASE:Regno: " + user.getPhone());
-            Log.d(TAG,"VIEWDATABASE:Reg: " + user.getEmail());
-            Log.d(TAG,"VIEWDATABASE:Regno: " + user.getAddress());
-
-
-
-            ArrayList<String> array =new ArrayList<>();
-            array.add(user.getName());
-            array.add(user.getPhone());
-            array.add(user.getEmail());
-            array.add(user.getAddress());
-
-            ArrayAdapter adapter =new ArrayAdapter(this,R.layout.custom_text,array);
-            listView.setAdapter(adapter);
-
-
-
-        }
-
-
-
-
-
-    }
 }

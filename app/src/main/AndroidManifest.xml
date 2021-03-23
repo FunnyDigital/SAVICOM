@@ -3,6 +3,7 @@
     package="com.bitvilltecnologies.savicom">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -11,11 +12,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".Profile"></activity>
+        <activity android:name=".AUTH.SignupActivity"></activity>
+        <activity android:name=".HOMEFUNCTION.Wanted" />
+        <activity android:name=".AUTH.Profile" />
         <activity android:name=".Feed" />
         <activity android:name=".HomeActivity" />
-        <activity android:name=".SignupActivity" />
-        <activity android:name=".LoginActivity" />
+        <activity android:name=".AUTH.LoginActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -6,10 +6,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
 
+import com.bitvilltecnologies.savicom.AUTH.Profile;
+import com.bitvilltecnologies.savicom.HOMEFUNCTION.Wanted;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class HomeActivity extends AppCompatActivity {
+    ImageButton wantedbtn;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -28,7 +33,7 @@ public class HomeActivity extends AppCompatActivity {
                     return true;
 
                 case R.id.profile:
-                    Intent intent2 = new Intent(HomeActivity.this,Profile.class);
+                    Intent intent2 = new Intent(HomeActivity.this, Profile.class);
                     finish();
                     startActivity(intent2);
                     return true;
@@ -45,5 +50,16 @@ public class HomeActivity extends AppCompatActivity {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setSelectedItemId(R.id.home);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        wantedbtn=(ImageButton)findViewById(R.id.wantedbtn);
+
+        wantedbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent1 = new Intent(HomeActivity.this, Wanted.class);
+                startActivity(intent1);
+                finish();
+            }
+        });
     }
 }

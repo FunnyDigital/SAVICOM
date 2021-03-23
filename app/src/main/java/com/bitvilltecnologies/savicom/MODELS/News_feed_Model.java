@@ -1,12 +1,12 @@
-package com.bitvilltecnologies.savicom;
+package com.bitvilltecnologies.savicom.MODELS;
 
 
-public class Model {
+public class News_feed_Model {
 
     String title,image,description;
 
 
-    public Model(){
+    public News_feed_Model(){
 
     }
 

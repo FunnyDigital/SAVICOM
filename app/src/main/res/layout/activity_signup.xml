@@ -1,115 +1,147 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#2EB19F"
-    tools:context=".SignupActivity">
-    <ImageView
-        android:id="@+id/textView2"
-        android:layout_width="190dp"
-        android:layout_height="190dp"
-        android:src="@drawable/npflogo"
-        android:layout_above="@+id/relativeLayout1"
-        android:layout_marginTop="50dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="50dp"/>
-
-    <RelativeLayout
-        android:id="@+id/relativeLayout1"
-        android:layout_width="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerInParent="true"
-        android:layout_height="wrap_content">
-
-        <EditText
-            android:id="@+id/signupname"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:textAlignment="center"
-            android:background="@drawable/edittext_background"
-            android:hint="Full Name"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
-            android:inputType="textEmailAddress"/>
-
-        <EditText
-            android:id="@+id/signupemaileditext"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="20dp"
-            android:layout_below="@+id/signupname"
-            android:textAlignment="center"
-            android:background="@drawable/edittext_background"
-            android:hint="Email"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
-            android:inputType="textEmailAddress"/>
-        <EditText
-            android:id="@+id/signupphone"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:textAlignment="center"
-            android:background="@drawable/edittext_background"
-            android:hint="Phone number"
-            android:layout_below="@id/signupemaileditext"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="50dp"
-            android:inputType="phone"/>
-        <EditText
-            android:id="@+id/signupaddress"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_below="@id/signupphone"
-            android:textAlignment="center"
-            android:background="@drawable/edittext_background"
-            android:hint="Contact address"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
-            android:inputType="textMultiLine"/>
-
-        <EditText
-            android:id="@+id/signupeditextpassword"
-            android:layout_marginTop="20dp"
-            android:textAlignment="center"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
-            android:background="@drawable/edittext_background"
-            android:hint="Password"
-            android:inputType="textPassword"
-            android:layout_below="@+id/signupaddress" />
-
-        <EditText
-            android:id="@+id/confirmpasswordeditext"
-            android:layout_marginTop="20dp"
-            android:textAlignment="center"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
-            android:background="@drawable/edittext_background"
-            android:hint="Confirm Password"
-            android:inputType="textPassword"
-            android:layout_below="@+id/signupeditextpassword" />
+    tools:context=".AUTH.SignupActivity">
 
 
-    </RelativeLayout>
-
-    <Button
-        android:id="@+id/signupAbtn"
+    <ScrollView xmlns:tools="http://schemas.android.com/tools"
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginBottom="50dp"
-        android:textColor="#ffff"
-        android:alpha=".6"
-        android:layout_alignParentBottom="true"
-        android:background="@drawable/edittext_transperent"
-        android:text="CRATE ACCOUNT"/>
-</RelativeLayout>
+        android:fillViewport="true"
+        android:layout_height="match_parent">
+
+
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#2EB19F">
+
+            <ImageView
+                android:id="@+id/textView2"
+                android:layout_width="190dp"
+                android:layout_height="190dp"
+                android:src="@drawable/npflogo"
+                android:layout_above="@+id/relativeLayout1"
+                android:layout_marginTop="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="50dp"/>
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout1"
+                android:layout_width="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerInParent="true"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/signup_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:textAlignment="center"
+                    android:background="@drawable/edittext_background"
+                    android:hint="Full Name"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="50dp"
+                    android:inputType="textEmailAddress"/>
+
+                <EditText
+                    android:id="@+id/signup_email_edittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_below="@+id/signup_name"
+                    android:textAlignment="center"
+                    android:background="@drawable/edittext_background"
+                    android:hint="Email"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="50dp"
+                    android:inputType="textEmailAddress"/>
+                <EditText
+                    android:id="@+id/signupphone"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:textAlignment="center"
+                    android:background="@drawable/edittext_background"
+                    android:hint="Phone number"
+                    android:layout_below="@id/signup_email_edittext"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="50dp"
+                    android:maxLength="11"
+                    android:inputType="phone"/>
+                <EditText
+                    android:id="@+id/signupaddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_below="@id/signupphone"
+                    android:textAlignment="center"
+                    android:background="@drawable/edittext_background"
+                    android:hint="Contact address"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="50dp"
+                    android:inputType="textMultiLine"/>
+
+                <EditText
+                    android:id="@+id/signupeditextpassword"
+                    android:layout_marginTop="20dp"
+                    android:textAlignment="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="50dp"
+                    android:background="@drawable/edittext_background"
+                    android:hint="Password"
+                    android:inputType="textPassword"
+                    android:layout_below="@+id/signupaddress" />
+
+                <EditText
+                    android:id="@+id/confirmpasswordeditext"
+                    android:layout_marginTop="20dp"
+                    android:textAlignment="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="50dp"
+                    android:background="@drawable/edittext_background"
+                    android:hint="Confirm Password"
+                    android:inputType="textPassword"
+                    android:layout_below="@+id/signupeditextpassword" />
+                <EditText
+                    android:id="@+id/nin"
+                    android:layout_marginTop="20dp"
+                    android:textAlignment="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="50dp"
+                    android:background="@drawable/edittext_background"
+                    android:hint="NIN:"
+                    android:inputType="number"
+                    android:maxLength="11"
+                    android:layout_below="@+id/confirmpasswordeditext" />
+
+
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/signupAbtn"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginBottom="50dp"
+                android:textColor="#ffff"
+                android:alpha=".6"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/edittext_transperent"
+                android:text="CRATE ACCOUNT"/>
+
+
+        </RelativeLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
