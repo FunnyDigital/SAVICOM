@@ -10,11 +10,12 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import com.bitvilltecnologies.savicom.AUTH.Profile;
+import com.bitvilltecnologies.savicom.HOMEFUNCTION.LostItem;
 import com.bitvilltecnologies.savicom.HOMEFUNCTION.Wanted;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class HomeActivity extends AppCompatActivity {
-    ImageButton wantedbtn;
+    ImageButton wantedbtn,lostbtn;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -52,11 +53,22 @@ public class HomeActivity extends AppCompatActivity {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         wantedbtn=(ImageButton)findViewById(R.id.wantedbtn);
+        lostbtn=(ImageButton)findViewById(R.id.lostbtn);
 
         wantedbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent1 = new Intent(HomeActivity.this, Wanted.class);
+                startActivity(intent1);
+                finish();
+            }
+        });
+
+
+      lostbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent1 = new Intent(HomeActivity.this, LostItem.class);
                 startActivity(intent1);
                 finish();
             }

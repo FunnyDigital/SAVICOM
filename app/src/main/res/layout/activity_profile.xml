@@ -41,18 +41,6 @@
                 android:background="@drawable/common_google_signin_btn_icon_dark_normal_background"
                 android:scaleType="centerCrop" />
 
-            <Button
-                android:id="@+id/savebtn2"
-                style="@style/Widget.AppCompat.Button.Small"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/imageView1"
-                android:fontFamily="@font/keepcalmmedium"
-                android:layout_centerHorizontal="true"
-                android:background="@drawable/common_google_signin_btn_icon_dark_normal_background"
-                android:text="SAVE AFTER UPLOAD COMPLETE"
-                android:textAlignment="center" />
-
             <TextView
                 android:fontFamily="@font/keepcalmmedium"
                 android:id="@+id/EV"
@@ -73,7 +61,7 @@
                 style="@android:style/Widget.DeviceDefault.ListView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/savebtn2"
+                android:layout_below="@+id/imageView1"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginRight="10dp"

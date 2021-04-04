@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HOMEFUNCTION.LostItem">
+
+    <androidx.appcompat.widget.Toolbar
+        android:gravity="top"
+        android:id="@+id/toolbar"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:background="@color/colorPrimary"
+        android:layout_height="50dp"/>
+
+    <LinearLayout
+        android:id="@+id/seerachlinerlayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/toolbar"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:layout_marginBottom="10dp">
+
+        <EditText
+            android:id="@+id/searchtextedittext"
+            android:layout_width="340dp"
+            android:layout_height="50dp"
+            android:alpha=".6"
+            android:focusable="true"
+            android:background="@drawable/edittext_transperent"
+            android:hint="Search"
+            android:inputType="text"
+            android:paddingLeft="15dp"
+            android:textAlignment="textStart"/>
+
+        <ImageButton
+            android:background="@drawable/edittext_background"
+
+            android:id="@+id/searchbtn"
+            android:layout_width="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_height="50dp"
+            android:layout_alignEnd="@+id/searchtextedittext"
+            android:layout_alignParentRight="true"
+            android:src="@android:drawable/ic_menu_search" />
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/seerachlinerlayout"
+        android:layout_margin="10dp"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="500dp"
+        android:layout_height="500dp"
+        android:src="@android:drawable/ic_input_add"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="20dp"
+        android:background="#ffff"/>
+
+
+
+</RelativeLayout>

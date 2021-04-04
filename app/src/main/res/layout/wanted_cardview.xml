@@ -33,6 +33,7 @@
                 android:layout_marginRight="5dp"
                 android:text="crimnal name: "/>
             <TextView
+                android:id="@+id/wantedname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="emeka peter john "/>
@@ -50,6 +51,7 @@
                 android:layout_marginRight="5dp"
                 android:text=" wanted for : "/>
             <TextView
+                android:id="@+id/wantedcrime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=" 3rd degree murdar"/>
@@ -67,6 +69,7 @@
                 android:layout_marginRight="5dp"
                 android:text=" description : "/>
             <TextView
+                android:id="@+id/wanteddescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=" omo the guy kill 8 people for juno"/>

@@ -12,6 +12,7 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -21,6 +22,7 @@ import android.widget.Toast;
 
 import com.bitvilltecnologies.savicom.Feed;
 import com.bitvilltecnologies.savicom.HomeActivity;
+import com.bitvilltecnologies.savicom.MODELS.User_Model;
 import com.bitvilltecnologies.savicom.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -30,14 +32,18 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class Profile extends AppCompatActivity {
 
@@ -101,11 +107,10 @@ public class Profile extends AppCompatActivity {
         listView=findViewById(R.id.listview);
         textView=findViewById(R.id.EV);
         imageViewz=findViewById(R.id.imageView1);
-        save=findViewById(R.id.savebtn2);
         progressBarz=findViewById(R.id.progress);
         mAuth=FirebaseAuth.getInstance();
         mfirebasedatabase= FirebaseDatabase.getInstance();
-        myRef=mfirebasedatabase.getReference();
+        myRef=mfirebasedatabase.getReference("Users");
         FirebaseUser firebaseUser = mAuth.getCurrentUser();
         userID =firebaseUser.getUid();
         storage = FirebaseStorage.getInstance();
@@ -122,17 +127,43 @@ public class Profile extends AppCompatActivity {
             }
         });
 
-        save.setOnClickListener(new View.OnClickListener() {
+
+
+        LoadUserDP();
+        myRef.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onClick(View view) {
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                for(DataSnapshot singleSnapshot : dataSnapshot.getChildren()){
+
+                     String user_name = singleSnapshot.getValue(User_Model.class).getName();
+                    String user_email = singleSnapshot.getValue(User_Model.class).getEmail();
+                    String user_phone = singleSnapshot.getValue(User_Model.class).getPhone();
+                    String user_address = singleSnapshot.getValue(User_Model.class).getAddress();
+                    String user_nin = singleSnapshot.getValue(User_Model.class).getNin();
+
+                    ArrayList<String> array =new ArrayList<>();
+                    array.add(user_name);
+                    array.add(user_email);
+                    array.add(user_phone);
+                    array.add(user_address);
+                    array.add(user_nin);
 
 
+                    ArrayAdapter adapter =new ArrayAdapter(Profile.this,R.layout.custom,array);
+                    listView.setAdapter(adapter);
+
+
+
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Toast.makeText(getApplicationContext(),databaseError.getMessage(),Toast.LENGTH_SHORT).show();
 
             }
         });
-
-        LoadUserDP();
-
 
     }
 
@@ -277,5 +308,8 @@ public class Profile extends AppCompatActivity {
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(Intent.createChooser(intent,"SELECT DP"),CHOOSE_IMAGE);
     }
+
+
+
 
 }

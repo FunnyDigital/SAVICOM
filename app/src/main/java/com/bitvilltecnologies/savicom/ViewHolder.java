@@ -33,4 +33,20 @@ public class ViewHolder extends RecyclerView.ViewHolder {
 
     }
 
+
+    public  void  setWanted(String wantedname, String wantedcrime, String wanteddescription,String wantedimg){
+        TextView Wantednametxt = mView.findViewById(R.id.wantedname);
+        TextView Wantedcrimetxt = mView.findViewById(R.id.wantedcrime);
+        TextView Wanteddescription = mView.findViewById(R.id.wanteddescription);
+        ImageView WimageView = mView.findViewById(R.id.wantedimg);
+
+        Wantednametxt.setText(wantedname);
+    Wantedcrimetxt.setText(wantedcrime);
+    Wanteddescription.setText(wanteddescription);
+    Picasso.get().load(wantedimg).into(WimageView);
+
+
+    }
+
+
 }

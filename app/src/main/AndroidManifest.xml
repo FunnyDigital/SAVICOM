@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".AUTH.SignupActivity"></activity>
+        <activity android:name=".HOMEFUNCTION.LostItem"></activity>
+        <activity android:name=".AUTH.SignupActivity" />
         <activity android:name=".HOMEFUNCTION.Wanted" />
         <activity android:name=".AUTH.Profile" />
         <activity android:name=".Feed" />
