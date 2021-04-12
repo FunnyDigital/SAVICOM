@@ -51,6 +51,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
+        android:id="@+id/lostRycycler"
         android:layout_height="match_parent"
         android:layout_below="@+id/seerachlinerlayout"
         android:layout_margin="10dp"/>
@@ -60,6 +61,7 @@
         android:layout_height="500dp"
         android:src="@android:drawable/ic_input_add"
         android:layout_alignParentEnd="true"
+        android:onClick="addLost"
         android:layout_alignParentBottom="true"
         android:layout_margin="20dp"
         android:background="#ffff"/>

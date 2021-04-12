@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 
 public class ViewHolder extends RecyclerView.ViewHolder {
 
@@ -45,6 +46,18 @@ public class ViewHolder extends RecyclerView.ViewHolder {
     Wanteddescription.setText(wanteddescription);
     Picasso.get().load(wantedimg).into(WimageView);
 
+
+    }
+
+    public void setLost(String lostimage, String lostdate, String lostdes) {
+
+        ImageView Lostimage = mView.findViewById(R.id.lostImage);
+        TextView Lostdate = mView.findViewById(R.id.date);
+        TextView Lostdes = mView.findViewById(R.id.description_of_lostItem);
+
+        Picasso.get().load(lostimage).into(Lostimage);
+        Lostdate.setText(lostdate);
+        Lostdes.setText(lostdes);
 
     }
 

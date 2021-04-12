@@ -104,6 +104,7 @@ public class Profile extends AppCompatActivity {
         navigation.setSelectedItemId(R.id.profile);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
+
         listView=findViewById(R.id.listview);
         textView=findViewById(R.id.EV);
         imageViewz=findViewById(R.id.imageView1);
